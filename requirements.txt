@@ -1,0 +1,7 @@
+google-api-python-client
+flask
+oauth2client
+google.cloud
+google-cloud-storage
+google.cloud.bigquery
+pandas

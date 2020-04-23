@@ -1,0 +1,17 @@
+runtime: python37
+api_version: 1
+threadsafe: true
+
+# [START handlers]
+handlers:
+
+- url: /
+  script: web.app
+# [END handlers]
+
+# [START libraries]
+libraries:
+- name: flask
+  version: latest
+
+# [END libraries]

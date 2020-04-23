@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    .column {
+      float: left;
+      width: 20%;
+      padding: 5px;
+    }
+
+    /* Clearfix (clear floats) */
+    .row::after {
+      content: "";
+      clear: both;
+      display: table;
+    }
+    
+    </style>
+    <title>Book Recommendation Dashboard</title>
+  </head>
+  <body>
+    {% extends "template.html" %}
+    {% block content %}
+    <h1>Please rate these books in order(1-5)</h1>
+    <div class="row">
+    {% for url in list %}        
+    <div class="column">
+      <img src= {{url}} alt="book" style="width:200px;height:220px"> 
+      <br>
+      rate: <input type="text" name="rate"><br>
+    </div>
+    {% endfor %}
+    </div>
+    
+    <form method="POST">
+        userid: <input type="text" name="userid"><br>
+        
+        <input type="submit" value="Submit"><br>
+    </form>
+    <p></p>
+    {% endblock %}
+    
+  </body>
+</html>				
