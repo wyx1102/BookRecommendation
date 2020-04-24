@@ -14,7 +14,7 @@ os.environ["PROJECT_NAME"] = PROJECT_NAME
 os.environ["BUCKET"] = BUCKET
 os.environ["REGION"] = REGION
 os.environ["TFVERSION"] = "1.15"
-os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = '/Users/wuyuxuan/Desktop/test/bookrecommendation-267223-bf4a12419741.json'
+os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = 'bookrecommendation-267223-bf4a12419741.json'
 user = 'AVC8ZAFPYOHZL'
 app = Flask(__name__) #create the Flask app
 
