@@ -46,6 +46,7 @@ def check(bucket_name, dirname):
             blob = bucket.blob(blob)
             blob.delete()
 def main():
+    os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = "bookrecommendation-267223-bf4a12419741.json"
     now = datetime.now()
     dt_string = now.strftime("%d_%m_%Y_%H_%M_%S")
     JOBNAME= "wals_"+ dt_string
