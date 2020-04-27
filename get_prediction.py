@@ -1,6 +1,8 @@
 from google.cloud import bigquery
 # import prediction file into bigquery and get prediction image urls
-def main(user = 'AVC8ZAFPYOHZL'):
+def main(user):
+    user = user.strip()
+    print(user)
     client = bigquery.Client(project='bookrecommendation-267223')
      # download prediction data and import into bigquery
     dataset_id = 'data'
@@ -36,12 +38,15 @@ def main(user = 'AVC8ZAFPYOHZL'):
         select 
             asin, imUrl 
         from 
-            bookrecommendation-267223.data.meta, 
-            (select * from bookrecommendation-267223.data.prediction where userId = @user) as books
+            bookrecommendation-267223.data.meta as meta, 
+            (select * from bookrecommendation-267223.data.prediction where userId=@user) as books
         where 
-            asin = books.asin1 or asin = books.asin2 or asin = books.asin3
+            meta.asin = books.asin1 or meta.asin = books.asin2 or meta.asin = books.asin3
     """
+   
     query_job = client.query(sql, job_config = job_config)
     df = query_job.to_dataframe()
+    
     urls =  df['imUrl'].tolist()
+    print(urls)
     return urls
